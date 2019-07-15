@@ -1,0 +1,11 @@
+version: '3'
+services:
+  app:
+    env_file:
+     - envs/test.env
+    command: ["make", "test"]
+  db_sql:
+    env_file:
+     - envs/test.env
+    volumes:
+      - ./database/test_data:/var/lib/postgresql/data

@@ -1,0 +1,24 @@
+version: '3'
+services:
+  app:
+    build: .
+    image: st4lk/currency_service
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./currency_service:/currency_service
+    env_file:
+     - envs/development.env
+    environment:
+      - DB_HOST=db_sql
+    depends_on:
+      - db_sql
+  db_sql:
+    build: ./database
+    image: st4lk/currency_psql
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./database/data:/var/lib/postgresql/data
+    env_file:
+     - envs/development.env

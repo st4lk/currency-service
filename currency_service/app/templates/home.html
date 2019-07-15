@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Currency Service</title>
+</head>
+<body>
+
+<h1>Currency Service</h1>
+<h3>Available resources:</h3>
+<ul>
+    <li>
+        <div><a href="{{ url('currencies_list') }}">Currency list</a><div>
+        <div>Support pagination: <a href="{{ url('currencies_list', query_={'page': '2'}) }}">page 2</a><div>
+        <div>Page size can be specified as well: <a href="{{ url('currencies_list', query_={'page_size': '1', 'page': '1'}) }}">Page size = 1</a></div>
+        <div>By default, page size = {{ default_page_size }}</div>
+    </li>
+    <li>
+        <div><a href="{{ url('rate_detail', currency_id=1) }}">Rate details of given currency</a><div>
+    </li>
+</ul>
+
+<h3>Basic Auth</h3>
+<div>API resources requires Basic Auth credentials. For development, following data can be used:</div>
+<div>login: <code>user</code></div>
+<div>password: <code>password</code></div>
+</body>
+</html>
